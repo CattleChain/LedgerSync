@@ -5,6 +5,7 @@ FROM node:10
 WORKDIR /dist
 # bundle source code
 COPY . .
+RUN rm -rf ./node_modules
 #installing dependencies
 RUN npm install
 # start app with yarn

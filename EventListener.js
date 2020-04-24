@@ -18,12 +18,13 @@ function addDatatoContextBroker(body) {
         request.post({
                 url: config.CONTEXT_BROKER + '/v2/entities',
                 body: body,
-                headers: { 'Content-Type': 'application/json' }
+                headers: { 'Content-Type': 'application/json' },
+                json: true
         }, (err, response) => {
                 if (err) {
                         console.log('error in adding data', err);
                 }
-                console.log('data added'. response);
+        console.log('data added'. response);
         });
 }
 
@@ -56,6 +57,7 @@ function getEventsMessage(message) {
                                                 value: element.value
                                         }
                                 }
+                                console.log('payload', payload);
                                 addDatatoContextBroker(payload);
                         });
                 }
@@ -102,6 +104,5 @@ function EventSubscribe(URL) {
         })
 
 }
-
 
 EventSubscribe(config.VALIDATOR_URL);
