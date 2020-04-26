@@ -18,7 +18,7 @@ function addDatatoContextBroker(body) {
         request.post({
                 url: config.CONTEXT_BROKER + '/v2/entities',
                 body: body,
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', 'fiware-service': 'cattlechain', 'fiware-servicepath': '/CattleChainService' },
                 json: true
         }, (err, response) => {
                 if (err) {
